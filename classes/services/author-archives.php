@@ -56,6 +56,7 @@ final class AuthorArchives
 			if ( $this->isAuthorArchiveLock() )
 			{
 				$login_url = \Subway\Options::getRedirectPageUrl();
+				nocache_headers(); // Prevent browser caching of page with the redirect header
 				wp_safe_redirect( $login_url, 302 );
 				exit;
 			}
