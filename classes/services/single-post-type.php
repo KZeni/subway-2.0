@@ -71,7 +71,7 @@ final class SinglePostTypeService {
 
 		if ( ! Metabox::isCurrentUserSubscribedTo( $current_page_id ) )
 		{
-			
+			nocache_headers(); // Prevent browser caching of page with the redirect header
 			wp_safe_redirect($login_page_url, 302);
 
 			exit;
